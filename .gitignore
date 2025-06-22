@@ -1,0 +1,24 @@
+config/config.env
+# Logs
+logs
+# Runtime data
+pids
+# Directory for pid files
+run 
+# Directory for process id files
+run/*
+# Directory for temporary files
+tmp 
+# Directory for temporary files
+tmp/*
+# Directory for cache files
+cache   
+# Directory for cache files
+cache/*
+# Directory for uploaded files
+uploads 
+# Directory for uploaded files
+uploads/*
+node_modules
+# Dependency directories
+node_modules/*
