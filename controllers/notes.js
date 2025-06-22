@@ -3,7 +3,7 @@ import Note from '../models/note.js'
 
 
 export const getNotes = async (req, res)=>{
-    res.send('All notes');
+    //res.send('All notes');
     try {
         const notes = await Note.find()
         res.status(200).json({
@@ -20,7 +20,14 @@ export const getNotes = async (req, res)=>{
 }
 
 export const getNote= async (req, res)=>{
-    res.send('One note');
+    //res.send('One note');
+    //check valid id
+    if(!req.params.id.match(/^[0-9a-fA-F]{24}$/)){
+        res.status(400).json({
+            succuss: false,
+            error: "ID est invalide"
+        })
+    }
     try {
         const note = await Note.findById(req.params.id)
         if(!note){
@@ -43,7 +50,7 @@ export const getNote= async (req, res)=>{
 }
 
 export const createNote= async (req, res)=>{
-    res.send('Note created');
+    //res.send('Note created');
     try {
         const note = await Note.create(req.body)
         if(!note){
@@ -65,7 +72,7 @@ export const createNote= async (req, res)=>{
 }
 
 export const updateNote= async (req, res)=>{
-    res.send('Updated')
+    //res.send('Updated')
     try {
         const note = await Note.findById(req.params.id)
         if(!note){
@@ -92,7 +99,7 @@ export const updateNote= async (req, res)=>{
 }
 
 export const deleteNote = async (req, res)=>{
-    res.send('Deleted')
+    //res.send('Deleted')
     try {
         const note= await Note.findById(req.params.id)
         if(!note){
