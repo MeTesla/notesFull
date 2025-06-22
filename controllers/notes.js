@@ -1,3 +1,4 @@
+import Note from '../models/note.js'
 export const getNotes = (req, res)=>{
     res.send('All notes');
 }
